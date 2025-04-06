@@ -1,0 +1,5 @@
+IMCA: Java, DBMS, Web Development
+IMBA: Finance, HRM, Marketing
+B.COM: Accounting, Business Studies, Taxation
+M.COM: Advanced Accounting, Economics
+LLB: Criminal Law, Civil Law, Constitution

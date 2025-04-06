@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oblivion University - Registration</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #1e3a5f;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #f5a623;
+    }
+    .tagline {
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    nav {
+      background-color: #1e3a5f;
+      padding: 0.8rem;
+      border-top: 1px solid #f5a623;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    nav li {
+      margin: 0 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #f5a623;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .hero {
+      background-color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    #registerBtn {
+      background-color: #f5a623;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+    #registerBtn:hover {
+      background-color: #e08e1b;
+    }
+    #registrationContainer {
+      display: none;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #1e3a5f;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .radio-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+    #submitBtn {
+      background-color: #f5a623;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #submitBtn:hover {
+      background-color: #e08e1b;
+    }
+
+    .why-choose {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .why-choose h2 {
+      color: #1e3a5f;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .why-choose ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+    .why-choose ul li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .why-choose ul li i {
+      color: #f5a623;
+      margin-right: 8px;
+    }
+
+    footer {
+      background-color: #1e3a5f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <h1 class="logo">OBLIVION <span>UNIVERSITY</span></h1>
+      <p class="tagline">Where knowledge meets opportunity</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="students.html">Star Students</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to Oblivion University</h1>
+    <p>Join our community of learners and discover your potential</p>
+    <button id="registerBtn">Show Registration Form</button>
+  </section>
+
+  <div class="container">
+    <div id="registrationContainer">
+      <h2 style="margin-bottom: 1.5rem; color: #1e3a5f;">Student Registration Form</h2>
+      <form>
+        <div class="form-group">
+          <label>Student Name:</label>
+          <input type="text" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Father Name:</label>
+          <input type="text" name="father" required />
+        </div>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" name="lastname" required />
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number:</label>
+          <input type="tel" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label>Birth Date:</label>
+          <input type="date" name="birthdate" required />
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="male" /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+            <label><input type="radio" name="gender" value="other" /> Other</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Department">Department:</label>
+          <select id="Department" name="Department" onchange="loadSubjects()" required>
+            <option value="">Select Department</option>
+            <option value="IMCA">IMCA</option>
+            <option value="IMBA">IMBA</option>
+            <option value="B.COM">B.COM</option>
+            <option value="M.COM">M.COM</option>
+            <option value="LLB">LLB</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select Subject</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <textarea name="address" rows="3"></textarea>
+        </div>
+        <input type="submit" id="submitBtn" value="Register" />
+      </form>
+    </div>
+  </div>
+
+  <section class="why-choose">
+    <h2>Why Choose Oblivion University?</h2>
+    <ul>
+      <li><i class="fas fa-graduation-cap"></i> <strong>Expert Faculty:</strong> Learn from industry professionals and experienced professors</li>
+      <li><i class="fas fa-laptop-code"></i> <strong>Modern Curriculum:</strong> Stay ahead with updated and practical course content</li>
+      <li><i class="fas fa-briefcase"></i> <strong>Placement Support:</strong> Strong industry tie-ups to boost your career</li>
+      <li><i class="fas fa-award"></i> <strong>Scholarships:</strong> We support talent through financial aid and rewards</li>
+      <li><i class="fas fa-university"></i> <strong>Vibrant Campus Life:</strong> From fests to clubs — something for everyone!</li>
+      <li><i class="fas fa-book-reader"></i> <strong>Library & Resources:</strong> Access to top-notch academic materials and digital content</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Oblivion University. All rights reserved.</p>
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      $("#registerBtn").click(function () {
+        $("#registrationContainer").slideToggle(3000);
+      });
+    });
+
+    function loadSubjects() {
+      const department = document.getElementById("Department").value;
+      const subjectDropdown = document.getElementById("subject");
+
+      if (!department) {
+        subjectDropdown.innerHTML = '<option value="">Select Subject</option>';
+        return;
+      }
+
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const lines = xhr.responseText.trim().split("\n");
+          const matchLine = lines.find(line => line.startsWith(department + ":"));
+          subjectDropdown.innerHTML = "";
+
+          if (matchLine) {
+            const subjects = matchLine.split(":")[1].split(",");
+            subjectDropdown.appendChild(new Option("Select Subject", ""));
+            subjects.forEach(subject => {
+              subjectDropdown.appendChild(new Option(subject.trim(), subject.trim().toLowerCase()));
+            });
+          } else {
+            subjectDropdown.innerHTML = '<option value="">No subjects found</option>';
+          }
+        }
+      };
+      xhr.open("GET", "subjects.txt", true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
